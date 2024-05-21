@@ -1,0 +1,68 @@
+
+
+footer{
+    background-color: black;
+    margin-top:0;
+    justify-content: center;
+    margin-bottom: 0;
+    width: 100vw;
+    height: 30px;
+  
+        ul{
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          height: 30px;
+          li{
+            color: #fff;
+            display: inline; /*Lo agregamos en una sola linea*/
+            margin-right: 20px;
+          }
+        }
+  
+        .derechos{
+          font-size:larger;
+          font-size: 12px;
+         
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+        .informacion{
+          font-size:larger;
+          font-size: 12px;
+          
+          margin-right: 5px;
+          margin-left: 20px;
+        }
+        .correo{
+          font-size: 14px;
+          font-weight: bold;
+          color:red;
+          font-style: oblique;
+        }
+  
+        .atleticos{
+          
+          font-size:larger;
+          font-size: 18px;
+          font-weight: bold;
+          border-bottom: double white;
+          margin-right: 20px;
+          margin-left: 5px;
+        }
+        
+         .atleticos::before{
+          content: "";
+          width: 1%;
+          height: 4px;
+          background-color:white;
+          position: absolute;
+          
+         }
+        
+         .atleticos::after{
+          content: "";
+        
+         }
+      
+  }

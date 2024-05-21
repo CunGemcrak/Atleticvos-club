@@ -1,0 +1,167 @@
+.contenedor_Card_Registrar{
+    width: 350px;
+    height: 500px;
+    display: flex;
+    flex-direction: column; /* Cambiado para alinear los elementos en columna */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px groove red;
+    border-radius: 10px;
+
+   
+}
+ form div h4{
+        font-size: 12px;
+        width: 300px;
+    }
+form div h1{
+    height:70%;
+    border:none;   
+    font-size:larger;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px;
+    border-bottom: double black;
+    margin-right: 20px;
+    margin-left: 5px;
+  }
+  
+ form div h1::before{
+    content: "";
+    width: 1%;
+    height: 4px;
+    background-color:black;
+    position: absolute;
+    
+   }
+  
+   form div h1::after{
+    content: "";
+  
+   }
+
+
+   
+div img {
+    width: 25px;
+    align-items: center;
+ 
+}
+
+form div div {
+     align-items: center;
+     margin-bottom:10px ;
+   }
+   label{
+    text-align: justify;
+   }
+
+ 
+   
+
+
+.checked_Recordar{
+    display: contents;
+    width: 30%;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    label{
+        margin-top: -9px;
+    }
+    
+}
+.Olvidaste{
+    margin-left: 15px;
+    color: brown;
+    font-weight: 700;
+    cursor: pointer;
+   
+}
+
+.Olvidaste:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    
+}
+.Olvidaste:active{
+    color: rgb(1, 59, 25);
+    font-weight: 700;
+    text-decoration: underline;
+    
+}
+
+.Grupo_REgistro{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 10px;
+    display: flex;
+    width:100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+.Olvidaste_registro{
+    margin-left: 2px;
+    color: brown;
+    font-weight: 700;
+    cursor: pointer;
+}
+.Olvidaste_registro:hover{
+    color: red;
+    font-weight: 700;
+    text-decoration: underline;
+    
+}
+.Olvidaste_registro:active{
+    color: rgb(1, 59, 25);
+    font-weight: 700;
+    text-decoration: underline;
+    
+}
+.contenedor_General_Pass{
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Cambiado para alinear los elementos en columna */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+.errores_input{
+    width: 300px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Grupo_pass_registrar{
+    display: flex;
+    border: 2px solid black;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 15px;
+    margin: 2px;
+    padding: 5px;
+    width: 70%;
+}
+.Grupo_pass_registrar input {
+    height: 100%; /* Ajustado para llenar el contenedor */
+    border: none; /* Eliminar el borde predeterminado del input */
+    outline: none; /* Eliminar el resaltado al enfocar el input */
+    background-color: transparent; /* Hacer el fondo del input transparente */
+    width: 90%; /* Para que el input ocupe todo el espacio disponible */
+    text-align: justify;
+  }
+
+  .Grupo_pass_registrar img {
+    cursor: pointer;
+  } 
