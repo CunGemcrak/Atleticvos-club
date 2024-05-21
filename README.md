@@ -1,4 +1,4 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+![Atleticos- Club]([https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png](https://drive.google.com/file/d/1YfZrhBGU4vZvnKUd7bBFENX43qxaaZca/view?usp=sharing))
 
 # **DOGS** | Proyecto Individual
 
