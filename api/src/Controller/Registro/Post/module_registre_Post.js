@@ -49,7 +49,7 @@ const F_Nacimiento = '00-00-0000'
       console.log("consulto el Usuaruio");
      if (consular_usuario) {
         console.log("El Usuario ya existe");
-            return res.status(400).json({ message: 'El nombre del Usuario ya existe.' });
+            return res.status(200).json({ message: 'El nombre del Usuario ya existe.' });
             }else{
                 console.log("Se puede almacenar");
         const today = new Date();
@@ -66,8 +66,10 @@ const F_Nacimiento = '00-00-0000'
             F_Ingreso_Usuario:today
         })
 
-        console.log("Datos guardados correctamente");
-        return res.status(200).json({Usuario_Creado})
+        
+        const userData = {Usuario:Usuario_Creado, save:"yes" }
+        console.log("Datos guardados correctamente " + JSON.stringify(userData) );
+        return res.status(200).json({Usuario:Usuario_Creado, save:"yes"})
     }
 
 } catch (error) {
