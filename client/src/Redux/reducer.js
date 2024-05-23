@@ -1,7 +1,7 @@
 import { REGISTRAR } from "./action-types";
 
 const initialState = {
-    allDogs: [],
+    Registrado: null,
     copydogs:[],
     temperamento:[]
 }
@@ -11,8 +11,7 @@ const reducer = (state= initialState, {type, payload})=>{
     switch( type ){
         case REGISTRAR:
             return{
-                ...state, allDogs:payload,
-                copydogs:payload
+                ...state, Registrado:payload
             }
             default:
                 return {...state}

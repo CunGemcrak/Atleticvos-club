@@ -1,24 +1,31 @@
 import { REGISTRAR, RECUPERAKEY } from "./action-types"
 import axios from 'axios'
 
-
-export const Registrar_User = (dataquery)=>{
+export const Registrar_User = (dataquery) => {
     return async (dispatch) => {
         try {
-            console.log("datos: "+ dataquery)
             const endpoint = 'http://localhost:3001/atleticos/register';
-            const response = await axios.post(endpoint, dataquery)
-            console.log("El dato de error es: " + response);
-            dispatch({
-                        type:RECUPERAKEY,
-                        payload:response
-                 })
-        } catch (error) {
-            
-        }
+            const response = await axios.post(endpoint, dataquery);
+            const userData = response.data;
 
-    }
-}
+
+
+            console.log("Datos encontrados", JSON.stringify(userData));
+
+            if (userData && userData.save === 'yes') {
+
+            dispatch({
+                type: REGISTRAR,
+                payload: userData,
+            });
+        }else{
+            alert('Error al registrar el usuario');
+        }
+        } catch (error) {
+            console.log("Error al enviar la información", error.message);
+        }
+    };
+};
 
 
 
@@ -31,7 +38,7 @@ export const Olvidaste_User = (dataquery)=>{
 
 
             dispatch({
-                        type:REGISTRAR,
+                        type:RECUPERAKEY,
                         payload:response
                  })
         } catch (error) {

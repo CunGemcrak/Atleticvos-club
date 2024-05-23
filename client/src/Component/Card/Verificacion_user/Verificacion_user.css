@@ -1,4 +1,4 @@
-.contenedor_Card_Registrar{
+.contenedor_Card_loading{
     width: 350px;
     height: 500px;
     display: flex;
@@ -9,12 +9,8 @@
     border: 2px groove red;
     border-radius: 10px;
 
-   
+
 }
- form div h4{
-        font-size: 12px;
-        width: 300px;
-    }
 form div h1{
     height:70%;
     border:none;   
@@ -26,6 +22,7 @@ form div h1{
     margin-right: 20px;
     margin-left: 5px;
   }
+
   
  form div h1::before{
     content: "";
@@ -76,7 +73,6 @@ form div div {
     
 }
 .Olvidaste{
-    width: 100%;
     margin-left: 15px;
     color: brown;
     font-weight: 700;
@@ -99,12 +95,13 @@ form div div {
 .Grupo_REgistro{
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 10px;
+    font-size: 12px;
     display: flex;
     width:100%;
     text-align: center;
     justify-content: center;
     align-items: center;
+
 
 }
 .Olvidaste_registro{
@@ -125,44 +122,43 @@ form div div {
     text-decoration: underline;
     
 }
-.contenedor_General_Pass{
-    width: 100%;
-    display: flex;
-    flex-direction: column; /* Cambiado para alinear los elementos en columna */
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
 
-}
-.errores_input{
-    width: 300px;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-}
-
-.Grupo_pass_registrar{
+.Grupo_pass{
+ 
     display: flex;
     border: 2px solid black;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
     justify-items: center;
-    height: 15px;
-    margin: 2px;
+    height: 25px;
+    margin: 10px;
     padding: 5px;
-    width: 70%;
 }
-.Grupo_pass_registrar input {
-    height: 100%; /* Ajustado para llenar el contenedor */
+.Grupo_pass input {
     border: none; /* Eliminar el borde predeterminado del input */
     outline: none; /* Eliminar el resaltado al enfocar el input */
     background-color: transparent; /* Hacer el fondo del input transparente */
-    width: 90%; /* Para que el input ocupe todo el espacio disponible */
-    text-align: justify;
+    width: 100%; /* Para que el input ocupe todo el espacio disponible */
+   
   }
-
-  .Grupo_pass_registrar img {
+  .Grupo_pass img {
     cursor: pointer;
   } 
+  .error{
+    color: red;
+    font-weight: 300;
+    font-size: 12px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    
+  }
+  .styloerror{
+    height: 20px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    
+  }
