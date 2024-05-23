@@ -44,4 +44,8 @@ Está permitido, **bajo tu responsabilidad**, actualizar las dependencias a vers
 
 
 <img src="./client/src/Component/img/Card/icono/escudo_atleticos23.png.jpg" alt="" width="1000px" />
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> e39924213a2c0cc1d607615e43f15cbe2278698c
