@@ -4,10 +4,24 @@ import saludobeisbol from '../../img/Card/icono/saludobeisbol.png'
 
 import validation from './Validar_Validacion_user.js'
 
+import { useNavigate } from 'react-router-dom';
 import {useState} from 'react'
-const VerificarUser =  ({ setView })  => {
+const VerificarUser =  ({setView})  => {
+
+
+
   
     const [errors, setErrors] = useState({});
+   // const navigate = useNavigate();
+
+
+    const hondlereturn = () =>{
+        setView('login')
+       // navigate('/login')
+        
+    }
+
+
     const [userData, setUserData]=useState({
         name:'',
         pass:'',
@@ -76,7 +90,7 @@ const VerificarUser =  ({ setView })  => {
                                         
                                         <div className="btn" onClick={handleSubmit}>Ingrsar</div>
                                         <div className="Grupo_REgistro">
-                                           <div className="Olvidaste_registro" onClick={() => setView('login')}>
+                                           <div className="Olvidaste_registro" onClick={hondlereturn}>
                                             Regresar 
                                                 </div></div>
                                     

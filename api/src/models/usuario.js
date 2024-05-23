@@ -46,6 +46,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      Activo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      Validar_usuario: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     F_Ingreso_Usuario: {
         type: DataTypes.DATE,
         allowNull: false,

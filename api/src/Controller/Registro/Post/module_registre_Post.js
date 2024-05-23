@@ -1,7 +1,9 @@
 const { Usuario } = require('../../../db.js')
 const { Op } = require('sequelize');
+const nodemailer = require('nodemailer')
+const { transporter } = require('../Config_mail/mailer.js');
 //const axios = require('axios')
-//const {URL, APPI_KEY} = process.env;
+const {MAIL_CLUB} = process.env;
 
 const registrar_usuario = async (req, res)=>{
 
@@ -52,6 +54,37 @@ const F_Nacimiento = '00-00-0000'
             return res.status(200).json({ message: 'El nombre del Usuario ya existe.' });
             }else{
                 console.log("Se puede almacenar");
+
+                 //Carqacteres especiales 
+
+        const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const specialChars = '1234567890!@#$%&?';
+        let code = '';
+
+        // Generar 5 letras aleatorias
+        for (let i = 0; i < 5; i++) {
+            const randomIndex = Math.floor(Math.random() * letters.length);
+            code += letters.charAt(randomIndex);
+        }
+
+        // Generar 3 caracteres especiales aleatorios
+        for (let i = 0; i < 3; i++) {
+            const randomIndex = Math.floor(Math.random() * specialChars.length);
+            code += specialChars.charAt(randomIndex);
+        }
+
+        // Convertir la cadena a un array y mezclarlo aleatoriamente
+        const codeArray = code.split('');
+        codeArray.sort(() => Math.random() - 0.5);
+
+        // Convertir el array nuevamente a una cadena
+        code = codeArray.join('');
+
+
+
+
+
+
         const today = new Date();
         const Usuario_Creado = await Usuario.create({
             P_Nombre:splitName.firstName , 
@@ -63,12 +96,35 @@ const F_Nacimiento = '00-00-0000'
             Mail: Correo, 
             Celular, 
             F_Nacimiento, 
+            Activo: 'no',
+            Validar_usuario: code,
             F_Ingreso_Usuario:today
         })
 
         
         const userData = {Usuario:Usuario_Creado, save:"yes" }
         console.log("Datos guardados correctamente " + JSON.stringify(userData) );
+       
+
+
+        //Diseño de mail 
+        await transporter.sendMail({
+            from: "Forgot password 👻 "+MAIL_CLUB, // sender address
+            to: Correo, // list of receivers
+            subject: "Forgot password ✔", // Subject line
+           // text: "Hello world?", // plain text body
+            html:  `
+            <b>Codigo de verificacion de, Club Atleticos</b>
+
+            <h1> ${code}</h1>
+
+            `, // html body
+          });
+
+
+
+
+
         return res.status(200).json({Usuario:Usuario_Creado, save:"yes"})
     }
 

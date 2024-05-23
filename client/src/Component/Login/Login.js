@@ -10,6 +10,7 @@ import VerificarUser from '../Card/Verificacion_user/Verificacion_user';
 
 const Login = () => {
     const [logueo, setLogueo] = useState(localStorage.getItem('pagina_atleticos') || 'login'); // Recuperar el estado inicial de localStorage
+   
 
     useEffect(() => {
         localStorage.setItem('pagina_atleticos', logueo); // Guardar el estado en localStorage cuando cambie
@@ -24,8 +25,9 @@ const Login = () => {
                 <div className="loading_derecha">
                     {logueo === 'login' && <CardLogin setView={setLogueo} />}
                     {logueo === 'olvidar' && <OlvidasteKey setView={setLogueo} />}
-                    {logueo === 'registrar' && <Registrar setView={setLogueo} />}
-                    {logueo === 'verificar' && <VerificarUser setView={setLogueo} />}
+                    {logueo === 'registrar' && <Registrar setView={setLogueo}/>}
+                    {logueo === 'verificar' && <VerificarUser setView={setLogueo}/>}
+                        
                 </div>
             </div>
         </div>
