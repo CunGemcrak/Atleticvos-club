@@ -1,12 +1,16 @@
 import './Verificacion_user.css'
+import { useDispatch, useSelector } from 'react-redux';
 
 import saludobeisbol from '../../img/Card/icono/saludobeisbol.png'
 
 import validation from './Validar_Validacion_user.js'
 
-import { useNavigate } from 'react-router-dom';
-import {useState} from 'react'
+import { Verify_User_Code } from '../../../Redux/actions';
+
+import {useEffect, useState} from 'react'
 const VerificarUser =  ({setView})  => {
+    const dispatch = useDispatch();
+    const Registro = useSelector((state) => state.Registrado);
 
 
 
@@ -23,8 +27,7 @@ const VerificarUser =  ({setView})  => {
 
 
     const [userData, setUserData]=useState({
-        name:'',
-        pass:'',
+        code:''
     });
 
  
@@ -43,20 +46,43 @@ const VerificarUser =  ({setView})  => {
       
 
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const validationErrors = validation(userData);
-        setErrors(validationErrors);
-
-        if (!userData.name || !userData.pass) {
+       // setErrors(validationErrors);
+       setUserData({
+        code: userData.code
+    });
+    alert('Este es el correo '+Registro.Usuario)
+    alert('Este es el Code '+userData.code)
+    const datos = {Correo:Registro.Usuario, code:userData.code}
+        if (!datos.Correo || !datos.code) {
             alert('Los campos no pueden estar vacíos');
         } else if (Object.keys(validationErrors).length === 0) {
             alert('Formulario enviado con éxito');
             // Aquí puedes realizar la lógica para enviar el formulario
+            
+          dispatch(Verify_User_Code(datos))
+          
+          
+           
+
         } else {
             alert('Existen errores en el formulario');
         }
     };
+
+    useEffect(() => {
+        if("Verificado" === Registro) {
+            setView('login')
+        }else
+        if("Error" === Registro ){
+            alert('Problemas en la cuenta')
+        }else{
+            alert('Problemas en la base de datos')
+        }
+    }, [Registro, setView])
+
 
     return (
                 <div className="contenedor_Card_loading">
@@ -68,8 +94,8 @@ const VerificarUser =  ({setView})  => {
                                     
                                         <div className='Grupo_pass'> 
                                         <input type="text" 
-                                            name="name" 
-                                            value={userData.name}
+                                            name="code" 
+                                            value={userData.code}
                                             onChange={handlChange}
                                             maxLength={100}
                                             placeholder="Confirmar datos"

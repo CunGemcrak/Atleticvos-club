@@ -73,7 +73,7 @@ const Registrar = ({ setView }) => {
         if (Registro && Registro.save) {
             if (Registro.save === "yes") {
                 alert("Datos Guardados satisfactoriamente");
-                alert("Hola! " + Registro.Usuario.P_Nombre);
+                //alert("Hola! " + Registro.Usuario);
                 setuserDataregistre({
                     name: '',
                     Papellido: '',

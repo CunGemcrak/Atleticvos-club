@@ -1,4 +1,4 @@
-import { REGISTRAR } from "./action-types";
+import { REGISTRAR,VERIFICAR } from "./action-types";
 
 const initialState = {
     Registrado: null,
@@ -13,6 +13,10 @@ const reducer = (state= initialState, {type, payload})=>{
             return{
                 ...state, Registrado:payload
             }
+        case VERIFICAR:
+            return{
+                ...state, Registrado:payload
+            } 
             default:
                 return {...state}
         }

@@ -7,13 +7,17 @@ const {
 
 const recuperar_Usuario = async (req, res) => {
   try {
-    const { Mail, Celular, Nit_Name } = req.query;
+    const { data } = req.body;
+    console.log(data)
+    if (!data) {
+      return res.status(400).json({ message: 'El parámetro "data" es requerido' });
+    }
     const usuarioExistente = await Usuario.findOne({ 
       where: { 
         [Op.or]: [
-          { Mail },
-          { Celular },
-          { Nit_Name }
+          { Mail:data },
+          { Celular:data },
+          { Nit_Name:data }
         ]
       }
     });

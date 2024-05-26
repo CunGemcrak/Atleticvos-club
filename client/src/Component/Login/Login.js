@@ -5,14 +5,16 @@ import CardLogin from '../Card/Login/Card_Login';
 import OlvidasteKey from '../Card/Olvidaste_key/OlvidasteKey';
 import Registrar from '../Card/Registrar/Registrar';
 
+
 import Atleticos_Escudo from '../img/Card/icono/escudo_atleticos23.png';
 import VerificarUser from '../Card/Verificacion_user/Verificacion_user';
 
+
 const Login = () => {
     const [logueo, setLogueo] = useState(localStorage.getItem('pagina_atleticos') || 'login'); // Recuperar el estado inicial de localStorage
-   
-
+    
     useEffect(() => {
+        //setLogueo('login') // para cuando se me bloquee
         localStorage.setItem('pagina_atleticos', logueo); // Guardar el estado en localStorage cuando cambie
     }, [logueo]);
 

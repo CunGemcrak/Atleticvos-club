@@ -1,6 +1,8 @@
 import { REGISTRAR, RECUPERAKEY } from "./action-types"
 import axios from 'axios'
 
+
+//Registramos usuario 
 export const Registrar_User = (dataquery) => {
     return async (dispatch) => {
         try {
@@ -27,12 +29,46 @@ export const Registrar_User = (dataquery) => {
     };
 };
 
+// Acción para verificar usuario
+export const Verify_User_Code = (dataquery) => {
+    return async (dispatch) => {
+        try {
+            const endpoint = 'http://localhost:3001/atleticos/verify';
+            const response = await axios.post(endpoint, dataquery);
+            const verificationData = response.data;
+
+            console.log("Verificación de usuario", JSON.stringify(verificationData));
+
+            let Autorise;
+            if (verificationData.message === 'Usuario verificado con éxito') {
+               // alert('Usuario verificado con éxito, Ahora puedes acceder');
+                Autorise = "Verificado";
+            } else {
+              //  alert('Error al verificar el usuario');
+                Autorise = "Error";
+            }
+
+            dispatch({
+                type: REGISTRAR,
+                payload: Autorise ,
+            });
+        } catch (error) {
+            console.log("Error al verificar el usuario", error.message);
+            alert("Error Fatal, Comunicate con el administrador");
+        }
+    };
+};
+
+
+
+
+
 
 
 export const Olvidaste_User = (dataquery)=>{
     return async (dispatch) => {
         try {
-            const endpoint = 'http://localhost:3001/atleticos/register';
+            const endpoint = 'http://localhost:3001/atleticos/recuperarkey';
             
             const response = await axios.post(endpoint, dataquery)
 
@@ -42,7 +78,7 @@ export const Olvidaste_User = (dataquery)=>{
                         payload:response
                  })
         } catch (error) {
-            
+            console.log("Error al enviar mensaje", error.message);
         }
 
     }

@@ -2,6 +2,11 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const  { registrar_usuario } = require('../Controller/Registro/Post/module_registre_Post')
+const {validar_usuario} =require('../Controller/Registro/Post/module_validar_usuario_Post')
+
+
+
+
 const {login} = require('../Controller/Registro/get/module_login_Get')
 const {recuperar_Usuario} = require('../Controller/Registro/get/module_recuperar_usuario')
 
@@ -22,6 +27,10 @@ const router = Router();
 
 //Metopdos Usuarios
 router.post('/atleticos/register', registrar_usuario)
+router.post('/atleticos/verify', validar_usuario)
+
+
+
 router.get('/atleticos/recuperarkey', recuperar_Usuario)
 router.get('/atleticos/login', login)
 
